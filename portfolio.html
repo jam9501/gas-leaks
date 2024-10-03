@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ainsley Martinez - Data Portfolio</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('background.png'); /* Set the background image */
+            background-size: cover; /* Make the background cover the entire page */
+            background-repeat: no-repeat; /* Prevent the background from repeating */
+            background-position: center; /* Center the background image */
+        }
+        header {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        video {
+            width: 100%;
+            height: 300px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff; /* White background for the text container */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        p {
+            font-family: Times, serif;
+            font-size: 25px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .photo {
+            float: right;
+            margin-left: 1in;
+            margin-right: 0.5in;
+            margin-bottom: 10px; /* Adjust if needed */
+            border-radius: 8px;
+            border: 2px solid #333;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <video autoplay muted loop>
+            <source src="header.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </header>
+    <div class="container">
+        <img src="headshot.jpeg" alt="Headshot" class="photo">
+        <h1>Hi, I’m Ainsley Martinez.</h1>
+        <p>Thank you for the opportunity to share some of my work.</p>
+        <p>Throughout high school and college, I planted myself in various newsrooms: monthly magazines, daily newspapers, and investigative non-profits.</p>
+        <p>Although the news organizations differ in structure and content, one common thread holds them all together: the focus on local communities.</p>
+        <p>I thrive and find fulfillment in working at community outlets. The teams are more collaborative, and in some ways, more creative. There is a unique joy in overcoming challenges and curating innovations without a plethora of resources.</p>
+        <p>I believe I can find that joy with Richner Communications, and provide more efficient ways of developing hard-hitting stories with engaging graphics.</p>
+        
+        <h2>Data Projects</h2>
+        <h1>Map of Gas Leak Distribution in New York City</h1>
+        <div class="projects">
+            <p>I created this map displaying gas leaks in New York City using QGIS, a geographic information system software. The interactive web version below has a tooltip implemented, where the user can hover over a neighborhood and the labels appear. I analyzed U.S. data, and found New York City has the highest rates of gas leaks in the country. Then, I analyzed the Fire Department of New York City's data, and found the Bronx had some of the highest rates of gas leaks within the city. Additionally, Morrisania had more gas leaks than 68% of all New York City neighborhoods. This could be a larger taxpayer story, with new scholarly research suggesting New Yorkers could be paying more than $77 million annually in gas leak repairs.</p>
+            <div class="image-container">
+                <iframe 
+                    src="file:///private/var/folders/k_/2506mzl95zlb07kmp0vc1vpm0000gn/T/qgis2web/Gas%20Leaks%20QGIS/index.html">
+                </iframe>
+            </div>
+            <h1>Mouse Accessibility for People With Motor Disabilities</h1>
+            <p>This is a prototype game interactive that mimics the experience of people with motor disabilities using a mouse, with a research analysis. The left side is a "control" of sorts, assuming the user does not have a motor disability. I coded the right side to illustrate how difficult it is for someone with a motor disability to complete a dragging movement using a traditional mouse. I used Python, a coding software, for the data analysis and D3 + JavaScript for the game: 
+              <p><strong>Note:</strong> You might need to refresh the page if time ran out on the right side.</p>
+                <div class="image-container">
+                    <iframe 
+                        src="https://jam9501.github.io/mouse-and-disabilities/mouse.html">
+                    </iframe>
+                </div>
+            <h1>New York State Senate Data Extraction + Artificial Intelligence Categorization</h1>
+            <p>I scraped and extracted the data from the New York State Senate website (https://www.nysenate.gov/legislation) for all bills passed in 2023, using Selenium—a coding library. Then, I used an OpenAI library, ChatGBT, with Python to code a function for categorizing bills by topic. The spreadsheet and coding notebook are available: 
+           <p><a href="https://github.com/jam9501/NY-bills-scraper-ai/tree/main" target="_blank">https://github.com/jam9501/NY-bills-scraper-ai/tree/main</a></p>
+           <h1>Data Science Notebook Accessibility graphic, story, and analysis</h1>
+            <p>I created an interactive graphic from scratch using Adobe Illustrator and D3 + JavaScript, which allows the notebook graphic to open with a click, and animates the text. With JavaScript, I created a scrolly-telling template, which allows the reader to scroll through the story. I used Python for the analysis. I interviewed the only software developer at Amazon experiencing blindness on his experience with inaccessible tools: 
+                <div class="image-container">
+                    <iframe 
+                        src="https://jam9501.github.io/Jupyter-access/jupyter.html">
+                    </iframe>
+                </div>
+                <h1>Automated Headline Extraction</h1>
+            <p>I built an automated scraper for a project on comparing Spanish news coverage from the United States. This automatically extracts headlines from the website every five minutes, and uploads them into a spreadsheet for me: 
+           <p><a href="https://github.com/jam9501/el-pais-autoscraper/blob/main/headlines.csv" target="_blank">https://github.com/jam9501/el-pais-autoscraper/blob/main/headlines.csv</a></p> 
+           <h1>Investigative Story on County Jails in Oklahoma</h1>
+           <div class="image-container">
+            <iframe 
+                src="https://oklahomawatch.org/2023/07/12/most-oklahoma-jails-failed-health-department-inspections-in-2022/">
+            </iframe>
+        </div>
+        
+        <p>Of course, the content and design will change based on the newsroom's needs and preferences—but I believe fostering data initiatives will lead to more engagement and efficient reporting.</p>
+        
+        <p>Graphics, photos, and visualizations stimulate active learning and help readers digest material, according to Jeffrey L. Griffin and Robert L. Stevenson's <a href="https://www.tandfonline.com/doi/pdf/10.1080/15551399609363328" target="_blank">research</a>.</p>
+        <p>“The ability to answer and accuracy were highest for the group with the story plus infographic plus photo,” reported the journal, adding the group with the lowest accuracy received the text without graphics or photos.</p>
+
+        <p>Visualizations provide readers and viewers more ways to interpret content—improving accessibility, thus engagement.</p>
+
+        <p>AI and programming tools, like scraping websites and building automated datasets, help reporters complete stories faster and cover more investigative content.</p>
+
+        <p>I would be honored to join the team, and develop these skills in the newsroom.</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ainsley Martinez. All rights reserved.</p>
+    </footer>
+</body>
+</html>

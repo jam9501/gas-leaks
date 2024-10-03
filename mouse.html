@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rogue Mouse Game</title>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden; /* Hide scrollbars */
+        cursor: none; /* Hide default cursor */
+        background-color: #f0f0f0;
+    }
+
+    #cursor {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        pointer-events: none; /* Disable interaction with cursor */
+    }
+
+    #finish-line {
+    position: absolute;
+    bottom: 50px; /* Adjusted position from bottom */
+    right: 10px; /* Adjusted position from right */
+    width: auto;
+    min-width: 160px; /* Adjust width to fit text */
+    height: auto;
+    padding: 10px; /* Padding for better readability */
+    background-image: url('button.png'); /* Set background image */
+    background-size: contain; /* Ensure the image scales properly */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    font-family: 'Georgia', serif; /* New York Times style font */
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.4; /* Adjust line height as needed */
+    z-index: 0; /* Behind cursor but clickable */
+    color: black; /* Text color to ensure visibility */
+}
+
+    #info {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-family: Georgia, serif;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+<div id="info">Time remaining: <span id="timeRemaining"></span></div>
+<div id="cursor"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var cursor = document.getElementById('cursor');
+        var finishLine = document.getElementById('finish-line');
+        var info = document.getElementById('info');
+        var timeRemaining = document.getElementById('timeRemaining');
+        var screenWidth = window.innerWidth;
+        var screenHeight = window.innerHeight;
+        var gameDuration = 15180; // 73.18 seconds in milliseconds
+        var startTime = Date.now();
+        var cursorX = screenWidth / 2;
+        var cursorY = screenHeight / 2;
+
+        function updateCursor() {
+            var elapsedTime = Date.now() - startTime;
+            var remainingTime = Math.max(0, (gameDuration - elapsedTime) / 1000).toFixed(2);
+            timeRemaining.textContent = remainingTime;
+            
+            if (elapsedTime < gameDuration) {
+                // Randomly move the cursor
+                cursorX += Math.floor(Math.random() * 11) - 5;
+                cursorY += Math.floor(Math.random() * 11) - 5;
+                
+                // Bound the cursor within the screen
+                cursorX = Math.max(0, Math.min(screenWidth - cursor.offsetWidth, cursorX));
+                cursorY = Math.max(0, Math.min(screenHeight - cursor.offsetHeight, cursorY));
+                
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                
+                // Check if cursor reaches finish line
+                if (cursorX >= screenWidth - 40 && cursorY >= screenHeight - 40) {
+                    finishLine.style.backgroundColor = 'green';
+                } else {
+                    finishLine.style.backgroundColor = 'yellow';
+                }
+                
+                // Schedule the next update
+                requestAnimationFrame(updateCursor);
+            } else {
+                // Game over
+                info.textContent = 'This is the average amount of time it takes a person with a motor disability affecting their dexterity to navigate a "simple" dragging movement using a standard mouse.';
+                timeRemaining.textContent = '0.00';
+            }
+        }
+
+        // Start the game loop
+        updateCursor();
+    });
+</script>
+</body>
+</html>
